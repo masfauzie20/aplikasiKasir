@@ -1,0 +1,57 @@
+.hourglass{
+  display:block;
+  background:#ffffff;
+  /*background:#ecf0f1;*/
+  margin:3em auto;
+  width:2em;
+  height:4em;
+  box-shadow:
+  inset #ffffff 0 0 0 0,
+  /*inset #ecf0f1 0 0 0 0,*/
+  inset #3498db 0 2em 0 0,
+  inset #ffffff 0 0 4em 0;
+  /*inset #ecf0f1 0 0 4em 0;*/
+  animation:hourglass 1.5s linear infinite;
+}
+
+.outer{
+  fill:#3498db;
+}
+
+.middle{
+  fill:#ffffff;
+  /*fill:#ecf0f1;*/
+}
+
+@keyframes hourglass{
+  0%{
+    transform:rotate(0deg);
+    box-shadow:
+    inset #ffffff 0 0 0 0,
+    /*inset #ecf0f1 0 0 0 0,*/
+    inset #3498db 0 2em 0 0,
+    inset #ffffff 0 4em 0 0,
+    /*inset #ecf0f1 0 4em 0 0,*/
+    inset #3498db 0 4em 0 0;
+  }
+  80%{
+    transform:rotate(0deg);
+    box-shadow:
+    inset #ffffff 0 2em 0 0,
+    /*inset #ecf0f1 0 2em 0 0,*/
+    inset #3498db 0 2em 0 0,
+    inset #ffffff 0 2em 0 0,
+    /*inset #ecf0f1 0 2em 0 0,*/
+    inset #3498db 0 4em 0 0;
+  }
+  100%{
+    transform:rotate(180deg);
+    box-shadow:
+    inset #ffffff 0 2em 0 0,
+    /*inset #ecf0f1 0 2em 0 0,*/
+    inset #3498db 0 2em 0 0,
+    inset #ffffff 0 2em 0 0,
+    /*inset #ecf0f1 0 2em 0 0,*/
+    inset #3498db 0 4em 0 0;
+  }
+}
