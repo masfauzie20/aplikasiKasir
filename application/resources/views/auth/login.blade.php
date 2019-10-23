@@ -3,7 +3,7 @@
 
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>Login | aplikasiKasir</title>
+	<title>Login | Aplikasikasir</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -39,7 +39,7 @@
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" placeholder="Email">
 							</div>
-                            <div class="form-group">	
+                            <div class="form-group">
                                 <input type="password" class="form-control" name="password" placeholder="Password">
 							</div>
                             <div class="form-group clearfix">
@@ -103,13 +103,13 @@
 							toastr.error(res.msg, 'Gagal');
 						}
 					},
-					error:function(response){	
+					error:function(response){
 						swal("Peringatan", response.responseJSON.message,"error");
 					}
 				});
 				event.preventDefault();
 			});
-			
+
 		</script>
     </body>
 </html>
