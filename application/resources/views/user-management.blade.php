@@ -1,95 +1,48 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 100;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-    </style>
-</head>
-<body>
-<div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-                <a href="{{ route('register') }}">Register</a>
-            @endauth
+@section('content')
+    <div class="card">
+        <div class="card-header">
+            <h4>Admin List</h4>
         </div>
-    @endif
-
-    <div class="content">
-        <div class="title m-b-md">
-            Laravel
-        </div>
-
-        <div class="links">
-            <a href="https://laravel.com/docs">Documentation</a>
-            <a href="https://laracasts.com">Laracasts</a>
-            <a href="https://laravel-news.com">News</a>
-            <a href="https://forge.laravel.com">Forge</a>
-            <a href="https://github.com/laravel/laravel">GitHub</a>
-        </div>
+        <table class="table table-md table-hover table-compact">
+            <thead>
+            <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Username</th>
+                <th scope="col">Fullname</th>
+                <th scope="col">Role</th>
+                <th scope="col">Last Sign In</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach ($user_list as $kode => $user)
+                <tr>
+                    <th class="v-middle" scope="row">{{ $loop->iteration }}</th>
+                    <td class="v-middle text-small">{{ $user->username }}</td>
+                    <td class="v-middle text-small">{{ $user->name }}</td>
+                    <td class="v-middle">{{ $user->role }}</td>
+                    <td class="v-middle">{{\Carbon\Carbon::parse($user->last_login)->diffForHumans()}}</td>
+                    <td class="v-middle">
+                        <div class="btn-group">
+                            <form action="{{ route('dashboard.user-management.delete', [$user->id]) }}"
+                                  method="post">
+                                {{ csrf_field() }} {{ method_field('DELETE') }}
+                                <button class="btn btn-sm btn-danger" type="submit"
+                                        onclick="return confirm('Yakin ingin menghapus data ?')"><i
+                                        class="fas fa-trash"></i></button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+            <div class="col-md-12 col-xs-12" style="margin-top: 16px;">
+                <div class="float-right">
+                    {{ $user_list }}
+                </div>
+            </div>
+        </table>
     </div>
-</div>
-</body>
-</html>
+@endsection
