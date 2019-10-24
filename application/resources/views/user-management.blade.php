@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <!--begin::Card View -->
     <div class="card">
         <div class="card-header">
             <h4>Admin List</h4>
@@ -45,4 +46,5 @@
             </div>
         </table>
     </div>
+    <!--end::Card View -->
 @endsection
