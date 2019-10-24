@@ -4389,8 +4389,6 @@ License: You must have a valid license purchased only from themeforest(the above
 			</li>
 		</ul>
 
-		<!-- begin::Quick Nav -->
-
 		<!--begin::Global Theme Bundle -->
 		<script src="assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
 		<script src="assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>

@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
+    <!--BEGIN::Head -->
     <head>
+        <!--Begin::Meta Contents -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <!--End::Meta Contents -->
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -64,6 +66,9 @@
             }
         </style>
     </head>
+    <!--BEGIN::Head -->
+
+    <!--BEGIN::Body -->
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -81,7 +86,7 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
+                <!-- Links -->
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
@@ -92,4 +97,5 @@
             </div>
         </div>
     </body>
+    <!--END::Body -->
 </html>
